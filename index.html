@@ -6,62 +6,51 @@
 <title>Elric's Birthday Wish List</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Layout: one centered column of holo-edged gift cards, matching a white + lavender desk setup */
-  --bg:#f7f5fc;
+  /* Layout: one tidy column, equal-height rows, prices in a fixed right column */
+  --bg:#f8f7fc;
   --card:#ffffff;
-  --ink:#231b3a;
-  --muted:#6b6385;
+  --ink:#1f1a2e;
+  --muted:#77708c;
   --accent:#7c4dff;
-  --accent-soft:#ece5ff;
-  --line:#e2dcf2;
-  --holo:linear-gradient(120deg,#c9b8ff 0%,#a8e6ff 30%,#ffc8f0 60%,#d6c4ff 100%);
+  --line:#e8e4f2;
+  --holo:linear-gradient(180deg,#c9b8ff,#a8e6ff 40%,#ffc8f0 75%,#d6c4ff);
   --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --body:"DM Sans",ui-sans-serif,system-ui,sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
 a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
-.wrap{max-width:760px;margin:0 auto;padding:28px 16px 56px;display:flex;flex-direction:column;gap:26px}
+.wrap{max-width:680px;margin:0 auto;padding:40px 16px 64px;display:flex;flex-direction:column;gap:32px}
 
-header{position:relative;border-radius:26px;padding:34px 26px 28px;background:var(--card);border:1px solid var(--line);overflow:hidden}
-header::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:var(--holo)}
-header::after{content:"";position:absolute;right:-70px;bottom:-90px;width:220px;height:220px;border-radius:50%;background:var(--holo);opacity:.5;filter:blur(10px)}
-header > *{position:relative;z-index:1}
-.date{display:inline-block;font-weight:700;font-size:14px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:5px 12px;margin-bottom:12px}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1.02;margin:0 0 8px;text-wrap:balance}
-.sub{margin:0;color:var(--muted);font-size:17px}
+header{display:flex;flex-direction:column;gap:10px}
+.date{align-self:flex-start;font-size:13px;font-weight:700;color:var(--accent);background:#efe9ff;border-radius:999px;padding:4px 12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(32px,7vw,44px);line-height:1.05;margin:0;text-wrap:balance}
 
-h2{font-family:var(--display);font-weight:800;font-size:24px;margin:0}
-section{display:flex;flex-direction:column;gap:12px}
+section{display:flex;flex-direction:column;gap:10px}
+h2{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
 
-.item{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 18px 18px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;overflow:hidden}
-.item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--holo)}
-.item.top{border-color:#cdbcff;box-shadow:0 8px 26px -16px rgba(124,77,255,.6)}
-.info{flex:1 1 280px;min-width:0}
-.item h3{font-family:var(--display);font-weight:600;font-size:20px;margin:0 0 2px;line-height:1.2}
-.note{margin:0;color:var(--muted);font-size:15px}
-.note b{color:var(--accent)}
-.right{display:flex;align-items:center;gap:12px;margin-left:auto}
-.price{font-family:var(--display);font-weight:800;font-size:19px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.buy{display:inline-block;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;background:var(--accent);color:#fff;white-space:nowrap}
+.item{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 16px;min-height:76px;padding:14px 16px 14px 22px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--holo)}
+.name{font-weight:700;font-size:17px;margin:0}
+.star{color:var(--accent);margin-right:4px}
+.note{grid-column:1;margin:0;color:var(--muted);font-size:14px}
+.side{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:120px}
+.row{display:flex;align-items:center;gap:12px}
+.price{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.buy{text-decoration:none;font-weight:700;font-size:14px;padding:7px 16px;border-radius:999px;background:var(--accent);color:#fff;white-space:nowrap}
 .buy:hover{filter:brightness(1.1)}
+.tt{font-size:13px;color:var(--accent);font-weight:500;white-space:nowrap}
 
-.money{position:relative;border-radius:22px;padding:22px 24px;background:var(--card);border:2px solid transparent;background-image:linear-gradient(var(--card),var(--card)),var(--holo);background-origin:border-box;background-clip:padding-box,border-box}
-.money h2{margin-bottom:4px}
-.money p{margin:0;color:var(--muted)}
+.money{padding:18px 20px;border:1.5px solid var(--accent);border-radius:14px;background:var(--card);font-family:var(--display);font-weight:700;font-size:20px}
 
-footer{color:var(--muted);font-size:14px;text-align:center;max-width:56ch;margin:0 auto}
-
-.right{flex-wrap:wrap}
-.alt{display:inline-block;text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--accent);background:#fff;color:var(--accent);white-space:nowrap}
-.right{flex-wrap:wrap}
 @media (max-width:480px){
-  .right{margin-left:0;width:100%;justify-content:space-between}
+  .item{grid-template-columns:1fr}
+  .side{grid-column:1;grid-row:auto;align-items:flex-start;margin-top:6px}
 }
 </style>
 </head>
@@ -71,34 +60,27 @@ footer{color:var(--muted);font-size:14px;text-align:center;max-width:56ch;margin
 <header>
   <span class="date">🎂 November 27</span>
   <h1>Elric's Birthday Wish List</h1>
-  <p class="sub">Stuff for my setup. Almost everything is the white one!</p>
 </header>
 
 <section aria-labelledby="top">
   <h2 id="top">Top wishes</h2>
 
-  <article class="item top">
-    <div class="info">
-      <h3>Alienware 34" OLED Monitor</h3>
-      <p class="note">Model <b>AW3425DW</b> (not the AW3425DWM). New, not used or renewed</p>
-    </div>
-    <div class="right"><span class="price">~$650 to $800</span><a class="buy" href="https://www.amazon.com/dp/B0F6724X5N">Buy</a></div>
+  <article class="item">
+    <p class="name"><span class="star">★</span>Alienware 34" OLED Monitor</p>
+    <p class="note">AW3425DW (not DWM). New only</p>
+    <div class="side"><div class="row"><span class="price">$650-800</span><a class="buy" href="https://www.amazon.com/dp/B0F6724X5N">Buy</a></div></div>
   </article>
 
-  <article class="item top">
-    <div class="info">
-      <h3>GravaStar Mercury K1 Keyboard</h3>
-      <p class="note"><b>Opaline White</b> (the holo one)</p>
-    </div>
-    <div class="right"><span class="price">$133</span><a class="buy" href="https://www.gravastar.com/products/mercury-k1-special-edition-opaline-white">Buy</a></div>
+  <article class="item">
+    <p class="name"><span class="star">★</span>GravaStar Mercury K1 Keyboard</p>
+    <p class="note">Opaline White (holo)</p>
+    <div class="side"><div class="row"><span class="price">$133</span><a class="buy" href="https://www.gravastar.com/products/mercury-k1-special-edition-opaline-white">Buy</a></div></div>
   </article>
 
-  <article class="item top">
-    <div class="info">
-      <h3>Logitech G502 X Plus Mouse</h3>
-      <p class="note">The <b>Plus</b> one, in <b>White</b> (model 910-006169)</p>
-    </div>
-    <div class="right"><span class="price">~$110 to $180</span><a class="buy" href="https://www.bestbuy.com/site/logitech-g502-x-plus-lightspeed-wireless-gaming-mouse-with-hero-25k-sensor-white/6512123.p">Buy</a></div>
+  <article class="item">
+    <p class="name"><span class="star">★</span>Logitech G502 X Plus Mouse</p>
+    <p class="note">White, model 910-006169</p>
+    <div class="side"><div class="row"><span class="price">$110-180</span><a class="buy" href="https://www.bestbuy.com/site/logitech-g502-x-plus-lightspeed-wireless-gaming-mouse-with-hero-25k-sensor-white/6512123.p">Buy</a></div></div>
   </article>
 </section>
 
@@ -106,48 +88,38 @@ footer{color:var(--muted);font-size:14px;text-align:center;max-width:56ch;margin
   <h2 id="small">Smaller gifts</h2>
 
   <article class="item">
-    <div class="info">
-      <h3>Fanttik B10 Pro Air Duster</h3>
-      <p class="note">The <b>Pro</b>, not Pro Max. Grey</p>
-    </div>
-    <div class="right"><span class="price">~$35</span><a class="buy" href="https://www.amazon.com/dp/B0FLK6K9FV">Buy</a><a class="alt tt" data-tt="ZT9fW2x4vyv2K-pYoJP" href="https://www.tiktok.com/t/ZT9fW2x4vyv2K-pYoJP/">TikTok ~$28</a></div>
+    <p class="name">Fanttik B10 Pro Air Duster</p>
+    <p class="note">Pro, not Pro Max</p>
+    <div class="side"><div class="row"><span class="price">$35</span><a class="buy" href="https://www.amazon.com/dp/B0FLK6K9FV">Buy</a></div><a class="tt tik" data-tt="ZT9fW2x4vyv2K-pYoJP" href="https://www.tiktok.com/t/ZT9fW2x4vyv2K-pYoJP/">or $28 on TikTok</a></div>
   </article>
 
   <article class="item">
-    <div class="info">
-      <h3>Akko V3 Lavender Purple Pro Switches</h3>
-      <p class="note">Need <b>2 packs</b> of 45 (90 total)</p>
-    </div>
-    <div class="right"><span class="price">~$20</span><a class="buy" href="https://www.amazon.com/s?k=Akko+V3+Lavender+Purple+Pro+switches+45">Buy</a></div>
+    <p class="name">Akko V3 Lavender Purple Pro Switches</p>
+    <p class="note">2 packs of 45</p>
+    <div class="side"><div class="row"><span class="price">$20</span><a class="buy" href="https://www.amazon.com/s?k=Akko+V3+Lavender+Purple+Pro+switches+45">Buy</a></div></div>
   </article>
 
   <article class="item">
-    <div class="info">
-      <h3>GravaStar Coiled Keyboard Cable</h3>
-      <p class="note">Pick <b>White</b> on the page</p>
-    </div>
-    <div class="right"><span class="price">$20</span><a class="buy" href="https://www.gravastar.com/products/gravastar-coiled-aviator-usb-cable-black">Buy</a><a class="alt tt" data-tt="ZP9fWHHCEGBGw-3IXi0" href="https://www.tiktok.com/t/ZP9fWHHCEGBGw-3IXi0/">TikTok ~$17</a></div>
+    <p class="name">GravaStar Coiled Keyboard Cable</p>
+    <p class="note">Pick White</p>
+    <div class="side"><div class="row"><span class="price">$20</span><a class="buy" href="https://www.gravastar.com/products/gravastar-coiled-aviator-usb-cable-black">Buy</a></div><a class="tt tik" data-tt="ZP9fWHHCEGBGw-3IXi0" href="https://www.tiktok.com/t/ZP9fWHHCEGBGw-3IXi0/">or $17 on TikTok</a></div>
   </article>
 
   <article class="item">
-    <div class="info">
-      <h3>Under-Desk Cable Tray</h3>
-      <p class="note">White or black, any is fine</p>
-    </div>
-    <div class="right"><span class="price">~$20 to $35</span><a class="buy" href="https://www.amazon.com/s?k=under+desk+cable+tray">Buy</a></div>
+    <p class="name">Under-Desk Cable Tray</p>
+    <p class="note">White or black</p>
+    <div class="side"><div class="row"><span class="price">$20-35</span><a class="buy" href="https://www.amazon.com/s?k=under+desk+cable+tray">Buy</a></div></div>
   </article>
 </section>
 
-<div class="money">
-  <h2>Or just give money 💵</h2>
-</div>
+<div class="money">Or just give money 💵</div>
 
 </div>
 <script>
 /* Android: open TikTok links straight in the TikTok app (falls back to the website if the app isn't installed) */
 (function(){
   if(!/Android/i.test(navigator.userAgent||"")) return;
-  document.querySelectorAll("a.tt").forEach(function(a){
+  document.querySelectorAll("a.tik").forEach(function(a){
     var web="https://www.tiktok.com/t/"+a.dataset.tt+"/";
     a.href="intent://www.tiktok.com/t/"+a.dataset.tt+"/#Intent;scheme=https;package=com.zhiliaoapp.musically;S.browser_fallback_url="+encodeURIComponent(web)+";end";
   });
